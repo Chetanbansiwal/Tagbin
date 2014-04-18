@@ -1,5 +1,0 @@
-/*
-This will be the code for connecting to internet
-right now its just an empty file but it will be full of great code in a day.
-SO cheers.
-*/
