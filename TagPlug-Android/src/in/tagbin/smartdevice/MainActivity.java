@@ -24,6 +24,7 @@ public class MainActivity extends Activity {
 	boolean isBound;
 	WifiManager mainWifi;
 	TextView text;
+	WiFiStack wiFiStack;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

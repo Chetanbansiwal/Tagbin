@@ -129,7 +129,6 @@ public class TheHeart extends Service {
 		@Override
 		public void onReceive(Context context, Intent intent) { 
 			
-			  
 			
 			NetworkInfo info = (NetworkInfo)intent.getParcelableExtra(WifiManager.EXTRA_NETWORK_INFO);
 			//Log.d(TAG,"DetailedState "+info.toString());
@@ -151,7 +150,7 @@ public class TheHeart extends Service {
 				} else
 				*/
 				{
-					wiFiStack.enableWifi();
+					wiFiStack.enableWifi();//No Need to call next function from within since once enabled it will again pas a broadcast that will fire up our next required function
 					wiFiStack.checkIfConnectedToMaster(context, intent);
 				}
 			}

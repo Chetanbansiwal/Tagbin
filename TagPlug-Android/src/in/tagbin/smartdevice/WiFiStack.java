@@ -1,6 +1,6 @@
 package in.tagbin.smartdevice;
 
-import java.io.BufferedReader;
+import java.io.BufferedReader; 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -9,9 +9,9 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.List;
-
 import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.wifi.WifiConfiguration;
 import android.net.wifi.WifiInfo;
@@ -35,6 +35,8 @@ public class WiFiStack {
 
 	private String TAG = "WIFI";
 	public String initialSSID = null;
+	public int netId;
+	public boolean foundMaster = false;
 
 	public WiFiStack(Context c) {
 		context = c;
@@ -63,6 +65,7 @@ public class WiFiStack {
 
 	public boolean checkIfConnectedToMaster(Context context, Intent intent) {
 		boolean isConnected = false;
+		Log.d(TAG, "checkIfConnectedToMaster()-> called");
 		NetworkInfo info = intent
 				.getParcelableExtra(WifiManager.EXTRA_NETWORK_INFO);
 		if (info != null) {
@@ -70,6 +73,7 @@ public class WiFiStack {
 			if (info.isConnected()) {
 				// Do your work.
 				Log.d(TAG, "isConnected()-> True");
+				
 
 				// To check the Network Name or other info:
 				wifiManager = (WifiManager) context
@@ -88,7 +92,11 @@ public class WiFiStack {
 					this.connectToMaster();
 					isConnected = false;
 				}
+			}else{
+				Log.d(TAG,"info.isConnected() returns false");
 			}
+		}else{
+			Log.d(TAG,"Info Null inside checkIfConnectedToMaster()");
 		}
 		return isConnected;
 
@@ -105,6 +113,7 @@ public class WiFiStack {
 			if (i.SSID != null
 					&& i.SSID.equals("\"" + context.getString(R.string._SSID)
 							+ "\"")) {
+				foundMaster = true;
 				wifiManager.disconnect();
 				wifiManager.enableNetwork(i.networkId, true);
 
@@ -112,11 +121,19 @@ public class WiFiStack {
 				new AsyncTask<Void, Void, String>() {
 
 					protected void onPostExecute(String msg) {
-						if(TextUtils.equals(msg, "_CONNECTED")){
-							Log.d(TAG,"Connected after doInBackground");
-						}else if(TextUtils.equals(msg, "_CONNECTED")){
-							Log.e(TAG,"NOT Connected after doInBackground");
+						
+						ConnectivityManager connManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+						NetworkInfo mWifi = connManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+
+						if (mWifi.isConnected()) {
+							Log.d(TAG,
+									"Good to Go");
+						}else{
+							Log.d(TAG,
+									"Wait buddy");
 						}
+						
+						
 						if (wifiManager
 								.getConnectionInfo()
 								.getSSID()
@@ -130,6 +147,7 @@ public class WiFiStack {
 							isConnected = false;
 							Log.d(TAG,
 									"SMART device not available Connect to INTERNET");
+							wifiManager.enableNetwork(netId, true);
 						}
 
 					}
@@ -137,18 +155,17 @@ public class WiFiStack {
 					@Override
 					protected String doInBackground(Void... params) {
 						isConnected = wifiManager.reconnect();
-						if(isConnected){
-						return "_CONNECTED";
-						}else{
-							return "_NOT_CONNECTED";
-						}
+						return "NOT_SURE";
 					}
 
 				}.execute(null, null, null);
 
 				break;
-			}
+			}else foundMaster = false;
 		}
+		
+		
+		
 	}
 
 	// Create socket
@@ -191,6 +208,7 @@ public class WiFiStack {
 	
 	private void getInitialSSID(){
 		initialSSID = wifiManager.getConnectionInfo().getSSID();
+		netId = wifiManager.getConnectionInfo().getNetworkId();
 		Log.d(TAG,"Initial SSID = "+initialSSID);
 	}
 
