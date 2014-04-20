@@ -173,7 +173,7 @@ public class WiFiStack {
 
 		Thread thread = new Thread() {
 			public void run() {
-				// if (socket.isClosed())
+				// if (socket.isClosed()) 
 				{
 					Log.d("WIFI", "Socket was closed, cretaing one");
 					try {// try to create a socket and output stream
@@ -211,5 +211,6 @@ public class WiFiStack {
 		netId = wifiManager.getConnectionInfo().getNetworkId();
 		Log.d(TAG,"Initial SSID = "+initialSSID);
 	}
+
 
 }

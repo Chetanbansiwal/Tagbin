@@ -24,22 +24,17 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Date;
 import android.app.Service;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.net.NetworkInfo;
-import android.net.wifi.SupplicantState;
-import android.net.wifi.WifiConfiguration;
 import android.net.wifi.WifiManager;
 import android.os.Binder;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
-import android.text.format.DateFormat;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -48,28 +43,39 @@ public class TheHeart extends Service {
 	boolean mAllowRebind;
 
 	WiFiStack wiFiStack;
+	DatabaseStack db;
 
+	@SuppressWarnings("unused")
 	private final IBinder myBinder = new MyLocalBinder();
+	IntentFilter filter;
 	BroadcastReceiver r;
 
 	public String TAG = "WIFI";
-	boolean _HAS_MASTER = true;  //A MASTER DEVICE IS CONFIGURED
+	boolean _HAS_MASTER = false; // A MASTER DEVICE IS CONFIGURED OR NOT
 
 	@Override
 	public void onCreate() {
 		super.onCreate();
+
+		// Object Initialization
 		wiFiStack = new WiFiStack(this);
+		db = new DatabaseStack(this);
+		filter = new IntentFilter();
+		r = new WifiChangeReceiver();
+		// db.addDevice("TESTING", "BED", "BATH", "AN:KI:TS:IN:HA");
+		if (db.getDeviceCount() >= 1)
+			_HAS_MASTER = true;
+
 		wiFiStack.enableWifi();
 
-		IntentFilter filter = new IntentFilter();
-		//filter.addAction(WifiManager.SUPPLICANT_STATE_CHANGED_ACTION);
+		// filter.addAction(WifiManager.SUPPLICANT_STATE_CHANGED_ACTION);
 		filter.addAction(WifiManager.NETWORK_STATE_CHANGED_ACTION);// connectivity
 																	// changed
 		filter.addAction(WifiManager.WIFI_STATE_CHANGED_ACTION);// enable
 																// disable
 																// enabling
 																// disabling
-		r = new WifiChangeReceiver();
+
 		registerReceiver(r, filter);
 		Log.d(TAG, "Service Started");
 	}
@@ -77,10 +83,13 @@ public class TheHeart extends Service {
 	@Override
 	public int onStartCommand(Intent intent, int flags, int startId) {
 
-		Toast.makeText(this, "service starting", Toast.LENGTH_SHORT).show();
-		Date d = new Date();
-		CharSequence s = DateFormat.format("EEEE-hh:mm:ss", d.getTime());
-		// generateNoteOnSD("Notes.txt","Service started at "+ s+"\n");
+		Toast.makeText(this,
+				"Received: " + intent.getIntExtra("PAYLOAD_DATA", 0),
+				Toast.LENGTH_SHORT).show();
+
+		/** SET NETWORK STAE AS 1->SENDING STATUS */
+		db.setNetworkState(intent.getIntExtra("PAYLOAD_DATA", 0), 1);
+		sendDataFromPayloadStore();
 
 		return START_NOT_STICKY;
 	}
@@ -106,61 +115,40 @@ public class TheHeart extends Service {
 	public void onDestroy() {
 		unregisterReceiver(r);
 		Toast.makeText(this, "service done", Toast.LENGTH_SHORT).show();
-		Date d = new Date();
-		CharSequence s = DateFormat.format("EEEE-hh:mm:ss", d.getTime());
+		// Date d = new Date();
+		// CharSequence s = DateFormat.format("EEEE-hh:mm:ss", d.getTime());
 		// generateNoteOnSD("Notes.txt","Service closed at "+ s+"\n");
-		/*
-		 * try { socket.close(); Log.d("WIFI", "SOCKET is Closed"); } catch
-		 * (IOException e) { // TODO Auto-generated catch block
-		 * e.printStackTrace(); } if (wifiManager.disconnect()) { Log.d("WIFI",
-		 * "WIFIMANAGER disconnected"); }
-		 */
-
 	}
 
 	public class MyLocalBinder extends Binder {
 		TheHeart getService() {
 			return TheHeart.this;
 		}
-	} 
+	}
 
 	public class WifiChangeReceiver extends BroadcastReceiver {
-		// BroadcastReceiver receiver = new BroadcastReceiver() {
 		@Override
-		public void onReceive(Context context, Intent intent) { 
-			
-			
-			NetworkInfo info = (NetworkInfo)intent.getParcelableExtra(WifiManager.EXTRA_NETWORK_INFO);
-			//Log.d(TAG,"DetailedState "+info.toString());
-			
-			//If a Master Device is added
+		public void onReceive(Context context, Intent intent) {
+
+			/** If a Master Device is added */
 			if (_HAS_MASTER) {
 
 				Log.d(TAG, "Broadcast Received "
 						+ intent.getAction().toString());
-
-			/*	String action = intent.getAction();
-				if (WifiManager.SUPPLICANT_STATE_CHANGED_ACTION.equals(action) && !wiFiStack.isConnected ) {
-					SupplicantState state = intent
-							.getParcelableExtra(WifiManager.EXTRA_NEW_STATE);
-					if (SupplicantState.isValidState(state)
-							&& state == SupplicantState.COMPLETED) {
-					        wiFiStack.connectToMaster();
-					}
-				} else
-				*/
 				{
-					wiFiStack.enableWifi();//No Need to call next function from within since once enabled it will again pas a broadcast that will fire up our next required function
+					wiFiStack.enableWifi();
+					
+					/**
+					 * No Need to call next function from within since once
+					 * enabled it will again pass a broadcast that will fire up
+					 * our next required function ->checkIfConnectedToMaster()
+					 */
 					wiFiStack.checkIfConnectedToMaster(context, intent);
 				}
-			}
+			} else
+				Log.d(TAG, "No Master Device Present");
 
 		};
-
-		// Send payload data from Payload store if exist
-		public void sendDataFromPayloadStore() {
-			// Will be implemented later
-		}
 
 		public void Toast(final String sText) {
 			final Context MyContext = getApplicationContext();
@@ -195,6 +183,18 @@ public class TheHeart extends Service {
 				e.printStackTrace();
 
 			}
+		}
+
+	}
+
+	/** Send payload data from payload store if exist */
+	public void sendDataFromPayloadStore() {
+		if (db.getNetworkState(1) >= 1) {
+			Log.d(TAG, "Something there to Send");
+			
+
+			/** SET NETWORK STAE AS 0->RECEIVED */
+			db.setNetworkState(0, 1);
 		}
 
 	}

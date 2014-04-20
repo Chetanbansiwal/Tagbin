@@ -1,39 +1,43 @@
 package in.tagbin.smartdevice;
 
 import in.tagbin.smartdevice.TheHeart.MyLocalBinder;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.app.Activity;
-import android.content.BroadcastReceiver;
 import android.content.ComponentName;
-import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
-import android.util.Log;
 import android.view.Menu;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements OnClickListener {
 
 	Intent heart;
 	TheHeart theHeart;
 	boolean isBound;
 	WifiManager mainWifi;
 	TextView text;
+	Button send;
 	WiFiStack wiFiStack;
+	
+	private static String PAYLOAD_DATA = "PAYLOAD_DATA";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		send = (Button) findViewById(R.id.send);
+		send.setOnClickListener(this);
 		text = (TextView) findViewById(R.id.text);
 		text.append("Starting\n");
 
 		heart = new Intent(this, TheHeart.class);
+		heart.putExtra(PAYLOAD_DATA, "_INIT");
 		startService(heart);
 		bindService(heart, myConnection, 0); // Why 0?
 
@@ -41,7 +45,6 @@ public class MainActivity extends Activity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
@@ -57,25 +60,20 @@ public class MainActivity extends Activity {
 
 	@Override
 	protected void onPause() {
-		// TODO Auto-generated method stub
 		super.onPause();
 		Toast.makeText(this, "onPause()", Toast.LENGTH_LONG).show();
-		// When i clicked back button then it paused then destroyed
-
 		// unbindService(myConnection);
 	}
 	
 
 	@Override
 	protected void onStop() {
-		// TODO Auto-generated method stub
 		super.onStop();
 		Toast.makeText(this, "onStop()", Toast.LENGTH_LONG).show();
 	}
 
 	@Override
 	protected void onResume() {
-		// TODO Auto-generated method stub
 		super.onResume();
 		Toast.makeText(this, "onResume()", Toast.LENGTH_LONG).show();
 	}
@@ -93,5 +91,15 @@ public class MainActivity extends Activity {
 		}
 
 	};
+
+	@Override
+	public void onClick(View v) {
+		
+		Intent intermediateData = new Intent(this, TheHeart.class);
+		intermediateData.putExtra(PAYLOAD_DATA, 1);
+        startService(intermediateData);
+		                  
+		
+	}
 
 }
