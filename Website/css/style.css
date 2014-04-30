@@ -5,5 +5,76 @@
  	left: 50%;
 	top: 100%;
 	height: 50%;
+	z-index: 2;
 	opacity: 1;
+}
+
+.wlcm, .intro, .cotact
+{
+	position: fixed;
+	width: 100%;
+	top:100%;
+	height: 700%;
+}
+
+.wlcm
+{
+	background: -webkit-linear-gradient(#186497, #6798b9, #faf7f8, #f5772a, #110b5a, #000000); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(#186497, #6798b9, #faf7f8, #f5772a, #110b5a, #000000); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(#186497, #6798b9, #faf7f8, #f5772a, #110b5a, #000000); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(#186497, #6798b9, #faf7f8, #f5772a, #110b5a, #000000); /* Standard syntax */
+}
+
+.intro
+{
+
+
+}
+
+.contact
+{
+
+}
+
+#a1 
+{
+    position: fixed;
+    background: green;
+    top: 0%;
+    width : 100%;    
+    height: 100%;
+}
+
+#a2, #a5, #a6 {
+    position: fixed;
+    top: 100%;
+    width: 100%;
+    height: 100%;
+}
+
+#a3, #a4 {
+    position:fixed;
+    left: 100%;
+    width: 100%;
+    height: 100%;
+}
+
+#a2 {
+    background: blue;
+}
+
+#a3 {
+    background: pink;
+}
+
+#a4 {
+    background: red;
+}
+
+#a5 {
+    background: grey;
+}
+
+#a6 {
+    background: yellow;
 }

@@ -24,12 +24,12 @@
 			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 			<![endif]-->
 		</head>
-		<body onload="init()" style="background: black;">
+		<body style="background: black;">
 			<h1>Hello, world!</h1>
 			<img src="images/nexus5.png" class="cld1"></img>
-			<div></div>
-			<div></div>
-			<div></div>
+			<div class="wlcm"></div>
+			<div class="intro"></div>
+			<div class="contact"></div>
 			<div class="dude" style="margin: 0 auto; width: 20%; background: white;">
 				<p>
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus porta pharetra urna, auctor consectetur lorem pharetra in. Donec laoreet justo nunc, a aliquam risus aliquam semper. Praesent volutpat pretium congue. Suspendisse ut vehicula lectus. Phasellus vehicula risus tortor, et lobortis libero porta sit amet. Sed id convallis purus. Nulla facilisi. Nulla quis dapibus massa, a ornare nibh. Donec varius nulla nec erat ullamcorper, sed porta elit feugiat. Nulla facilisi. Integer eleifend, nisi at vulputate placerat, massa nisl congue dolor, sed aliquet tortor orci sed sapien. Cras ullamcorper, nunc sollicitudin rhoncus dignissim, risus est tincidunt lorem, in fermentum tellus augue convallis augue. Vestibulum ut dictum ligula, viverra congue risus. Etiam vel massa euismod, euismod mi vitae, porta lectus. Sed pharetra nibh a nibh congue blandit.
@@ -53,6 +53,12 @@
 
 				
 			</div>
+			<div id="a1"><img src="images/background.png" style="width: 100%;"></div>
+			<div id="a2"></div>
+			<div id="a3"></div>
+			<div id="a4"></div>
+			<div id="a5"></div>
+			<div id="a6"></div>
 
 			<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 			<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
@@ -61,12 +67,89 @@
 			<script src="js/jarallax2.2c.js"></script>
 
 			<script type="text/javascript">
+				/*
 				init = function () {
 					var jarr = new Jarallax();
 					jarr.addAnimation('.cld1',[{progress:'0%', top: '100%'}, {progress: '50%', top: '20%'}]);
 					jarr.addAnimation('.cld1',[{progress: '50%', left: '50%'}, {progress: '100%', left: '20%'}]);
 					jarr.addAnimation('.cld1',[{progress:'80%', opacity: '1'},{progress: '90%', opacity: '1'}, {progress: '100%', opacity: '0'}]);
+					jarr.addAnimation('.wlcm',[{progress:'15%',top:'100%'},{progress:'20%', top:'100%'}, {progress:'50%',top:'0%'}, {progress:'60%', top:'-600%'}, {progress:'70%', top:'-600%'}]);
+					jarr.addAnimation('.intro',[{progress:'15%',top:'100%'},{progress:'40%', top:'100%'}, {progress:'70%',top:'0%'}, {progress:'80%', top:'-100%'}])
 				}
-			</script>
-		</body>
-		</html>
+				*/
+				var lastScrollTop = 0;
+				var slideno = 1;
+
+				function chets(ef) {
+					//$(window).off();
+					if (ef == "down") {
+						if (slideno < 6) {
+							slideno++;							
+						};
+						$("#a" + slideno).animate({
+							top: "0%",
+							left: "0%"
+						}, 500);
+						
+        // Animation complete.
+      		} else /* if (st < lastScrollTop)*/ {
+      			if (slideno == 3 || slideno == 4) {
+      			$("#a" + slideno).animate({
+      				left: "100%"
+      			}, 500);
+      			} else if (slideno != 1){
+      				$("#a" + slideno).animate({
+      				top: "100%"
+      				}, 500);
+      			}
+      			if (slideno >=2) {
+      				slideno--;      				
+      			};
+      		}
+      		/*
+      		$(window).scroll(function () {
+      			chets();
+      		});
+					*/
+    		}
+
+    		function keyer (e) {
+  				if (e.which == 34 /*|| e.which == 40 */) {
+  					e.preventDefault();
+  					chets("down");
+  					//alert("down");
+  				}
+  				else if (e.which == 33 /*|| e.which == 38 */) {
+  					e.preventDefault();
+  					chets("up");
+  				}
+  				else {
+  					console.log(e);
+	  				var st = $(this).scrollTop();
+	  				if (st > lastScrollTop) {
+	  					chets("down");    					
+	  				}
+	  				else if(st < lastScrollTop){
+	  					chets("up");
+	  				}
+	  				lastScrollTop = st;
+  				}
+  				listener();
+  			}
+
+  			function listener () {
+  				$(window).on("keyup mousewheel DOMMouseScroll", function (ef){
+    				$(window).off();
+    				keyer(ef);
+    			});
+  			}
+
+
+
+
+    		$(document).ready(function () {
+    			   listener();
+    		});
+  </script>
+</body>
+</html>
