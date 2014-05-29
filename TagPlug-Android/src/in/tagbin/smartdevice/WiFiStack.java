@@ -1,13 +1,7 @@
 package in.tagbin.smartdevice;
 
 import java.io.BufferedReader; 
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.PrintWriter;
-import java.net.Socket;
-import java.net.UnknownHostException;
 import java.util.List;
 import android.content.Context;
 import android.content.Intent;
@@ -24,15 +18,13 @@ public class WiFiStack {
 
 	// WIFI related variables
 	WifiManager wifiManager;
-	DataOutputStream dataOutputStream = null;// outputstream to send commands
-	DataInputStream dataInputStream = null;
-	Socket socket = null;// the socket for the connection
 	PrintWriter out;
 	BufferedReader in;
+	
 	boolean isConnected = false;
 	List<WifiConfiguration> list;
 	Context context;
-
+	
 	private String TAG = "WIFI";
 	public String initialSSID = null;
 	public int netId;
@@ -70,7 +62,7 @@ public class WiFiStack {
 				.getParcelableExtra(WifiManager.EXTRA_NETWORK_INFO);
 		if (info != null) {
 
-			if (info.isConnected()) {
+			//if (info.isConnected()) {
 				// Do your work.
 				Log.d(TAG, "isConnected()-> True");
 				
@@ -92,9 +84,9 @@ public class WiFiStack {
 					this.connectToMaster();
 					isConnected = false;
 				}
-			}else{
-				Log.d(TAG,"info.isConnected() returns false");
-			}
+			//}else{
+			//	Log.d(TAG,"info.isConnected() returns false");
+			//}
 		}else{
 			Log.d(TAG,"Info Null inside checkIfConnectedToMaster()");
 		}
@@ -143,10 +135,12 @@ public class WiFiStack {
 							isConnected = true;
 							Log.d(TAG, "Connected to SMART WIFI "
 									+ wifiManager.getConnectionInfo().getSSID());
+							createSocket("SERVER", "Random data");
 						} else {
 							isConnected = false;
 							Log.d(TAG,
 									"SMART device not available Connect to INTERNET");
+							createSocket("SERVER", "Random data");
 							wifiManager.enableNetwork(netId, true);
 						}
 
@@ -168,41 +162,12 @@ public class WiFiStack {
 		
 	}
 
-	// Create socket
-	public void createSocket() {
+	// Create socket and write data
+	public void createSocket(String connType,String message) {
+		Log.d(TAG,"Creating TCP Socket to "+connType+" with message "+message);
+		TcpStack tcpStack = new TcpStack(connType, message);
+		tcpStack.writeToSocket();
 
-		Thread thread = new Thread() {
-			public void run() {
-				// if (socket.isClosed()) 
-				{
-					Log.d("WIFI", "Socket was closed, cretaing one");
-					try {// try to create a socket and output stream
-						socket = new Socket("192.168.16.254", 8080);// create
-
-						if (socket.isConnected())
-							Log.d("WIFI", "SOCKET CREATED ON"
-									+ socket.getInetAddress().toString()); // socket
-						dataOutputStream = new DataOutputStream(
-								socket.getOutputStream());// and stream
-						dataInputStream = new DataInputStream(
-								socket.getInputStream());
-						Log.d("THREAD", "Thread Statred");
-						dataOutputStream.writeBytes("1@");
-						in = new BufferedReader(new InputStreamReader(
-								socket.getInputStream()));
-						Log.d("WIFI", "->"+in.readLine().toString()
-								+ "Socket response");
-					} catch (UnknownHostException e) {// catch and
-						Log.d("WIFI", e.getMessage());// display errors
-						// changeConnectionStatus(false);
-					} catch (IOException e) {// catch and
-						Log.d("WIFI", e.getMessage());// display errors
-						// changeConnectionStatus(false);
-					}
-				}
-			}
-		};
-		thread.start();
 
 	}
 	

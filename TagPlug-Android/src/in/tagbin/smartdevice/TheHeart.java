@@ -39,9 +39,12 @@ import android.util.Log;
 import android.widget.Toast;
 
 public class TheHeart extends Service {
+	
+	//Services related stuffs
 	IBinder mBinder;
 	boolean mAllowRebind;
-
+	
+	//Module class Instantiation
 	WiFiStack wiFiStack;
 	DatabaseStack db;
 
@@ -49,7 +52,8 @@ public class TheHeart extends Service {
 	private final IBinder myBinder = new MyLocalBinder();
 	IntentFilter filter;
 	BroadcastReceiver r;
-
+	
+	//Global variables
 	public String TAG = "WIFI";
 	boolean _HAS_MASTER = false; // A MASTER DEVICE IS CONFIGURED OR NOT
 
@@ -62,6 +66,7 @@ public class TheHeart extends Service {
 		db = new DatabaseStack(this);
 		filter = new IntentFilter();
 		r = new WifiChangeReceiver();
+		
 		// db.addDevice("TESTING", "BED", "BATH", "AN:KI:TS:IN:HA");
 		if (db.getDeviceCount() >= 1)
 			_HAS_MASTER = true;
@@ -76,8 +81,10 @@ public class TheHeart extends Service {
 																// enabling
 																// disabling
 
-		registerReceiver(r, filter);
+		//registerReceiver(r, filter);
 		Log.d(TAG, "Service Started");
+		//wiFiStack.createSocket("SERVER", "SOME AWESOME STUFFS");
+		
 	}
 
 	@Override

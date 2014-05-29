@@ -19,11 +19,11 @@ public class MainActivity extends Activity implements OnClickListener {
 
 	Intent heart;
 	TheHeart theHeart;
-	boolean isBound;
-	WifiManager mainWifi;
+	
+	WifiManager mainWifi; 
 	TextView text;
 	Button send;
-	WiFiStack wiFiStack;
+	boolean isBound;
 	
 	private static String PAYLOAD_DATA = "PAYLOAD_DATA";
 
