@@ -1,0 +1,12 @@
+C:\Users\Hp\Documents\Visual Studio 2010\Projects\_candid_bump\_candid_bump\bin\Debug\_candid_bump.exe
+C:\Users\Hp\Documents\Visual Studio 2010\Projects\_candid_bump\_candid_bump\bin\Debug\_candid_bump.pdb
+C:\Users\Hp\Documents\Visual Studio 2010\Projects\_candid_bump\_candid_bump\bin\Debug\Interop.AXVLC.dll
+C:\Users\Hp\Documents\Visual Studio 2010\Projects\_candid_bump\_candid_bump\bin\Debug\AxInterop.AXVLC.dll
+C:\Users\Hp\Documents\Visual Studio 2010\Projects\_candid_bump\_candid_bump\obj\x86\Debug\Interop.AXVLC.dll
+C:\Users\Hp\Documents\Visual Studio 2010\Projects\_candid_bump\_candid_bump\obj\x86\Debug\AxInterop.AXVLC.dll
+C:\Users\Hp\Documents\Visual Studio 2010\Projects\_candid_bump\_candid_bump\obj\x86\Debug\_candid_bump.csproj.ResolveComReference.cache
+C:\Users\Hp\Documents\Visual Studio 2010\Projects\_candid_bump\_candid_bump\obj\x86\Debug\_candid_bump.Form1.resources
+C:\Users\Hp\Documents\Visual Studio 2010\Projects\_candid_bump\_candid_bump\obj\x86\Debug\_candid_bump.Properties.Resources.resources
+C:\Users\Hp\Documents\Visual Studio 2010\Projects\_candid_bump\_candid_bump\obj\x86\Debug\_candid_bump.csproj.GenerateResource.Cache
+C:\Users\Hp\Documents\Visual Studio 2010\Projects\_candid_bump\_candid_bump\obj\x86\Debug\_candid_bump.exe
+C:\Users\Hp\Documents\Visual Studio 2010\Projects\_candid_bump\_candid_bump\obj\x86\Debug\_candid_bump.pdb
