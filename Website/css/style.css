@@ -1,3 +1,8 @@
+@font-face
+{
+font-family: dernier;
+src: url(../fonts/Dernier.ttf);
+}
 
 .cld1
 {
@@ -36,45 +41,213 @@
 
 }
 
-#a1 
+#a1_0 
 {
     position: fixed;
-    background: green;
     top: 0%;
     width : 100%;    
     height: 100%;
 }
 
-#a2, #a5, #a6 {
+#a2_0, #a5_0, #a6_0 {
     position: fixed;
     top: 100%;
     width: 100%;
     height: 100%;
 }
 
-#a3, #a4 {
+#a3_0, #a4_0 {
     position:fixed;
     left: 100%;
     width: 100%;
     height: 100%;
 }
 
-#a2 {
+#a2_0 {
     background: blue;
 }
 
-#a3 {
+#a3_0 {
     background: pink;
 }
 
-#a4 {
-    background: red;
+#a4_0 {
+    cursor: url(../images/hand-iphone4.gif), auto;
 }
 
-#a5 {
+#a5_0 {
     background: grey;
 }
 
-#a6 {
-    background: yellow;
+#a6_0 {
+    background: black;
 }
+
+
+
+#a1_0 div 
+{
+	position: fixed;
+	left: 0%;
+	top: 0%;
+	opacity: 0; 
+	width: 100%;
+	height: 100%;
+}
+
+#line1, #line2, #line3, #line4 {
+	position: fixed;
+}
+
+
+#line1 {
+	left: 30%;
+	top: 23%;
+	width: 40%;
+}
+
+#line2 {
+	left:30%;
+	bottom: 25%;
+	width: 40%;
+}
+
+#line3 {
+	left: 30%;
+	top: 40%;
+	width: 40%;
+}
+
+#line4 {
+	left: 6%;
+	bottom: 2%;
+	width: 32%;
+}
+
+#lofftext {
+	opacity: 0;
+}
+
+#a2_0 img {
+	position: fixed;
+}
+
+#a3_0 img {
+	position: fixed;
+}
+
+#a4_0 img {
+	position: fixed;
+}
+
+#a5_1, #a5_2, #a5_3, #a5_4 {
+
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+#s1, #s2, #s3, #s4 {
+	opacity: 0;
+}
+
+#a5_1 {
+	
+	left: 0%;
+	top: 0%;
+	opacity: 0;
+	
+}
+
+#a5_2 {
+	left: 100%; 
+	top: 0%;
+}
+
+#a5_3 {
+	left: 0%;
+	top: 0%;
+	opacity: 0;
+}
+
+#a5_4 {
+	left: 0%;
+	top: 0%;
+	opacity: 0;
+}
+
+#lighton {
+	opacity: 1;
+}
+
+#lightpress, #lightpress1 {
+	margin-left: 40%;
+	margin-top: 39%;
+	width: 20%;
+}
+
+#lightpress1 {
+	opacity: 0;
+}
+
+#left {
+
+}
+
+#light {
+	opacity: 0;
+}
+
+
+
+#st1 {
+	top:10%;
+	left: 3%; 
+	width: 20%;
+}
+
+.speaker {
+	top: 10%;
+	width: 7%;
+}
+
+#rspeaker {
+	left: 74%;
+}
+
+#lspeaker {
+	left: 46%;
+}
+
+#play {
+	opacity: 1;
+}
+
+#pause {
+	opacity: 0;
+}
+
+@-webkit-keyframes bass {
+0%   {width:7%;}
+20%  {width:7.3%;}
+40%	 {width: 7%;}
+60%  {width:7.3%;}
+75%  {width:7.2%;}
+100% {width:7%;}
+}
+
+@keyframes bass {
+0%   {width:7%;}
+20%  {width:7.3%;}
+40%	 {width: 7%;}
+60%  {width:7.3%;}
+75%  {width:7.2%;}
+100% {width:7%;}
+}
+
+.playing
+{
+	-webkit-animation: bass 0.3s infinite; /* Chrome, Safari, Opera */
+	animation: bass 0.3s infinite;
+}
+
