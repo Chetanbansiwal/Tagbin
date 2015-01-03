@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/viaServer"
+        android:textColor="@color/text_color"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="19dp"
+        android:text="@string/via_server"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+     <CheckBox
+        android:id="@+id/viaServerStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/viaServer"
+        android:layout_marginRight="32dp"
+        android:enabled="false"
+         />
+
+    <TextView
+        android:id="@+id/viaDevice"
+        android:textColor="@color/text_color"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/viaServer"
+        android:layout_below="@+id/viaServerStatus"
+        android:layout_marginTop="14dp"
+        android:text="@string/via_Device"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/proximityText"
+        android:textColor="@color/text_color"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="26dp"
+        android:text="@string/proximity"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_below="@+id/viaDeviceStatus"
+        android:layout_alignLeft="@+id/viaDevice"
+        android:layout_alignStart="@+id/viaDevice" />
+
+    <CheckBox
+        android:id="@+id/proximity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/proximityText"
+        android:layout_alignBottom="@+id/proximityText"
+        android:layout_alignLeft="@+id/viaDeviceStatus" />
+
+    <CheckBox
+        android:id="@+id/viaDeviceStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/viaDevice"
+        android:layout_alignBottom="@+id/viaDevice"
+        android:layout_alignLeft="@+id/viaServerStatus"
+        android:enabled="false"
+         />
+
+    <TextView
+        android:id="@+id/wifi_setting_text"
+        android:textColor="@color/text_color"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="WIFI - Settings"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_marginTop="25dp"
+        android:layout_below="@+id/proximity"
+        android:layout_alignLeft="@+id/proximityText"
+        android:layout_alignStart="@+id/proximityText" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:id="@+id/wifi_setting_button"
+        android:background="@drawable/wifi_50"
+        android:layout_alignLeft="@+id/proximity"
+        android:layout_alignStart="@+id/proximity"
+        android:layout_alignRight="@+id/proximity"
+        android:layout_alignEnd="@+id/proximity"
+        android:layout_alignBottom="@+id/wifi_setting_text"
+        android:layout_alignTop="@+id/wifi_setting_text"
+        android:clickable="true" />
+
+</RelativeLayout>

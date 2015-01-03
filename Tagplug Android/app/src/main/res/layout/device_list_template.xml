@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+        <!--   android:background="#33676767" -->
+
+     <ExpandableListView
+         android:id="@+id/expandableListView"
+         android:layout_width="match_parent"
+         android:layout_height="405dp"
+         android:layout_marginTop="@dimen/abc_action_bar_default_height_material"
+      />
+
+    <!-- <com.tagplug.app.FloatingActionButton
+        android:id="@+id/fabButton"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:textSize="24sp"
+        android:layout_gravity="right"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_below="@+id/expandableListView"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" /> -->
+
+     <RelativeLayout
+         android:id="@+id/deleteDropArea"
+         android:layout_width="wrap_content"
+         android:layout_height="match_parent"
+         android:layout_alignParentBottom="true"
+         android:layout_alignParentLeft="true"
+         android:layout_alignParentRight="true"
+         android:layout_below="@+id/expandableListView"
+         android:layout_alignParentTop="false"
+         android:layout_alignWithParentIfMissing="false"
+         android:layout_alignParentEnd="false"
+         android:layout_alignParentStart="false"
+         android:layout_marginTop="18dp">
+
+         <ImageView
+             android:id="@+id/imageView1"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:src="@drawable/close75"
+             android:visibility="invisible"
+             android:layout_alignParentBottom="true"
+             android:layout_centerHorizontal="true" />
+
+     </RelativeLayout>
+
+</RelativeLayout>

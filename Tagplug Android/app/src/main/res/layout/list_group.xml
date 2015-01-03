@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginTop="5dp"
+    android:paddingTop="16dp"
+    android:elevation="5dp"
+    android:background="@drawable/gradient_for_list"
+    >
+    <!-- android:background="@drawable/gradient_for_list" -->
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="40dp" >
+
+        <TableRow android:gravity="right" >
+
+            <ImageView
+                android:id="@+id/icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:src="@drawable/tv_32" />
+
+            <TextView
+                android:id="@+id/lblListHeader"
+                android:layout_width="170dp"
+                android:layout_height="45dp"
+                android:layout_gravity="left"
+                android:alpha="0.7"
+                android:padding="12dp"
+                android:text="Tubelight"
+                android:textAllCaps="false"
+                android:textColor="#676767"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:layout_width="3dp"
+                android:layout_height="40dp"
+                android:layout_marginRight="70dp"
+                android:scaleType="fitXY"
+                android:src="@android:drawable/divider_horizontal_dark" />
+
+            <ToggleButton
+                style="?android:attr/buttonStyleSmall"
+                android:id="@+id/toggle"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:text="ToggleButton"
+                android:focusable="false"
+                />
+
+            <!-- android:background="@drawable/ic_toggle_bg"-->
+
+
+            <RelativeLayout
+                android:id="@+id/layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" >
+
+
+                <ImageView
+                    android:id="@+id/on_off"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentTop="true"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/off"
+                    android:visibility="gone" >
+                </ImageView>
+
+                <ImageView
+                    android:id="@+id/on"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentTop="true"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/on"
+                    android:visibility="gone" >
+                </ImageView>
+            </RelativeLayout>
+        </TableRow>
+    </TableLayout>
+
+</RelativeLayout>

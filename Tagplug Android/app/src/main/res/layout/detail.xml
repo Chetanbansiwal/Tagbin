@@ -1,0 +1,38 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    tools:context="in.tagplug.app.MainActivity$PlaceholderFragment"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#ffffff" 
+    android:id="@+id/detail_page"
+     >
+
+<com.tagplug.app.PagerSlidingTabStrip
+    android:id="@+id/tabs"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    android:layout_alignParentStart="true"
+    android:layout_alignParentLeft="false"
+    android:background="?attr/colorPrimary"
+     >
+
+    </com.tagplug.app.PagerSlidingTabStrip>
+    <!-- Slider tab strip -->
+    
+<android.support.v4.view.ViewPager
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/pager"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_alignParentBottom="false"
+    android:layout_alignParentEnd="false"
+    android:layout_alignParentRight="false"
+    android:layout_alignWithParentIfMissing="false"
+    android:layout_centerInParent="false"
+    android:groupIndicator="@null">
+   
+</android.support.v4.view.ViewPager>
+
+
+</RelativeLayout>

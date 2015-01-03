@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Tagplug</string>
+    <string name="title_section1"></string>
+    <string name="title_section2">Add Device</string>
+    <string name="title_section3">Add Alarm</string>
+    <string name="title_section4">Settings</string>
+    <string name="title_section5">Feedback</string>
+    <string name="drawer_open">Menu opened</string>
+    <string name="drawer_close">Menu closed</string>
+    <string name="action_settings">Settings</string>
+    <string name="_SSID">HI-LINK_419B</string>
+    <string name="proximity">Proximity</string>
+    <string name="via_server">Via Server</string>
+    <string name="via_Device">Via Device</string>
+    <string name="username">WIFI SSID</string>
+    <string name="password">PASSWORD</string>
+
+</resources>

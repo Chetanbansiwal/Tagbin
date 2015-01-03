@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <!-- android:background="@layout/rounded_corner" -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" 
+    android:fadingEdge="horizontal"  
+    android:gravity="center"
+    android:orientation="horizontal"
+     >
+
+    <TextView
+        android:id="@+id/headerText"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left|center_vertical"
+        android:gravity="center"
+        android:text="Header" />
+
+    <ImageView
+        android:id="@+id/actionBarLogo"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left|center_vertical"
+        android:src="@drawable/tv_32" />
+   
+
+</RelativeLayout>

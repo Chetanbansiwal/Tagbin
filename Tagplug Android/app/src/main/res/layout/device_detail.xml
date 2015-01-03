@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:weightSum="1"
+    android:padding="10dp">
+
+
+    <TextView
+        android:layout_width="140dp"
+        android:layout_height="85dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="347 "
+        android:id="@+id/usageText"
+        android:layout_weight="0.12"
+        android:paddingLeft="20dp"
+        android:paddingTop="10dp"
+        android:textColor="@color/myPrimaryDarkColor"
+        android:textStyle="italic"
+        android:textSize="70sp"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/kwh"
+        android:layout_toEndOf="@+id/kwh"
+        android:layout_marginLeft="-15dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Rs"
+        android:id="@+id/kwh"
+        android:textColor="@color/myPrimaryColor"
+        android:textSize="30sp"
+        android:layout_alignBaseline="@+id/usageText"
+        android:layout_alignBottom="@+id/usageText"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="1200 KWh"
+        android:id="@+id/textView2"
+        android:textColor="@color/myAccentColor"
+        android:layout_below="@+id/usageText"
+        android:layout_toRightOf="@+id/kwh"
+        android:layout_toEndOf="@+id/kwh"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="50dp"
+        android:layout_height="30dp"
+        android:text="Detail"
+        android:id="@+id/energyDetails"
+        android:layout_marginRight="29dp"
+        android:layout_marginEnd="29dp"
+        android:layout_alignTop="@+id/kwh"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:background="@color/myPrimaryColor"
+        android:textSize="10sp" />
+
+</RelativeLayout>

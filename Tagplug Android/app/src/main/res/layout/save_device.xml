@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#dbdbdb" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp" >
+
+        <Button
+            android:id="@+id/saveButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:background="@color/myPrimaryDarkColor"
+            android:text="Save"
+            android:enabled="true" />
+
+        <Spinner
+            android:id="@+id/location"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:background="#f2f2f2"
+            android:layout_marginTop="35dp"
+            android:layout_below="@+id/plugName"
+            android:layout_toRightOf="@+id/button2"
+            android:layout_toEndOf="@+id/button2" />
+
+        <Spinner
+            android:id="@+id/type"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:background="#f2f2f2"
+            android:layout_marginTop="37dp"
+            android:layout_below="@+id/location"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_toRightOf="@+id/button3"
+            android:layout_toEndOf="@+id/button3" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tagplug Details"
+            android:textColor="@color/text_color"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:textColorHint="@color/text_hint_color"
+            android:layout_marginTop="10dp" />
+
+        <EditText
+            android:id="@+id/plugName"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:background="#f2f2f2"
+            android:textColor="@color/text_color"
+            android:textColorHint="@color/text_hint_color"
+            android:ems="10"
+            android:layout_marginTop="39dp"
+            android:layout_below="@+id/textView1"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignLeft="@+id/location"
+            android:layout_alignStart="@+id/location"
+            android:paddingLeft="120dp"
+            android:hint="Name" />
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/saveDeviceLoading"
+            android:layout_above="@+id/saveButton"
+            android:layout_centerHorizontal="true"
+            android:indeterminate="false" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="NAME"
+            android:id="@+id/button"
+            android:layout_alignBottom="@+id/plugName"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:background="@color/myPrimaryDarkColor"
+            android:layout_alignTop="@+id/plugName"
+            android:textSize="12dp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ROOM"
+            android:id="@+id/button2"
+            android:background="@color/myPrimaryDarkColor"
+            android:layout_alignTop="@+id/location"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignBottom="@+id/location"
+            android:textSize="12dp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Type"
+            android:id="@+id/button3"
+            android:background="@color/myPrimaryDarkColor"
+            android:layout_alignTop="@+id/type"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignBottom="@+id/type"
+            android:elegantTextHeight="false"
+            android:textSize="12dp" />
+
+    </RelativeLayout>
+
+</FrameLayout>
