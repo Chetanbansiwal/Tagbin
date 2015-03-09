@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="@drawable/name_no"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:layout_width="200dp"
+        android:layout_height="25dp"
+        android:id="@+id/nameText"
+        android:background="#fffffff7"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/register"
+        android:layout_marginLeft="57dp"
+        android:layout_marginTop="65dp"
+        android:autoText="false" />
+
+    <EditText
+        android:layout_width="200dp"
+        android:layout_height="25dp"
+        android:id="@+id/mobileText"
+        android:background="#fffffff7"
+        android:layout_above="@+id/register"
+        android:layout_alignLeft="@+id/nameText" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Play"
+        android:id="@+id/register"
+        android:background="@drawable/button"
+        android:textColor="#fffdffff"
+
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout><!-- From: file:/C:/Users/Administrator/AndroidStudioProjects/android-breakout/app/src/main/res/layout/name_fragment.xml -->

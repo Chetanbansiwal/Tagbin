@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/run_slab_slot_screen">
+    <Button
+        android:layout_width="120dp"
+        android:layout_height="35dp"
+        android:text="Practise"
+        android:id="@+id/practise"
+        android:textColor="#fffffff7"
+        android:background="@drawable/button"
+        android:layout_alignTop="@+id/playGame"
+        android:layout_centerHorizontal="true"
+
+         />
+
+    <Button
+        android:layout_width="120dp"
+        android:layout_height="35dp"
+        android:text="Play Game"
+        android:id="@+id/playGame"
+        android:background="@drawable/button"
+        android:textColor="#fffffff7"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="53dp"
+        android:layout_marginBottom="20dp" />
+
+</RelativeLayout><!-- From: file:/C:/Users/Administrator/AndroidStudioProjects/android-breakout/app/src/main/res/layout/runs_slab_fragment.xml -->

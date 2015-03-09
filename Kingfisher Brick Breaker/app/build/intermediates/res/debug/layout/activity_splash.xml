@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/splashView"
+        android:src="@drawable/splash_home_screen"
+        android:layout_gravity="center_horizontal" />
+
+</RelativeLayout><!-- From: file:/C:/Users/Administrator/AndroidStudioProjects/android-breakout/app/src/main/res/layout/activity_splash.xml -->

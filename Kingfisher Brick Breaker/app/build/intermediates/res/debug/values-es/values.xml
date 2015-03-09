@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/C:/Users/Administrator/AndroidStudioProjects/android-breakout/app/src/main/res/values-es/strings.xml -->
+    <eat-comment/>
+    <string-array name="difficulty_level_names">
+        <item>Fácil</item>
+        <item>Normal</item>
+        <item>Duro</item>
+        <item>Absurdo</item>
+    </string-array>
+    <string name="app_name">Breakout</string>
+    <string name="button_about">Sobre</string>
+    <string name="button_newGame">Nuevo Juego</string>
+    <string name="button_resumeGame">Reanudar Juego</string>
+    <string name="checkbox_neverLoseBall">Nunca perder la bola</string>
+    <string name="checkbox_soundEffectsEnabled">Efectos sonoros</string>
+    <string name="difficulty">Dificultad: </string>
+    <string name="msg_game_over">Juego Termina</string>
+    <string name="msg_ready">Listo?</string>
+    <string name="msg_winner">Ganador!</string>
+    <string name="ok">Bueno</string>
+    <string name="text_highScoreLabel">Mejor Puntaje:</string>
+</resources>
