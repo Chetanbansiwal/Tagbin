@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/android-breakout.iml" filepath="$PROJECT_DIR$/android-breakout.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Kingfisher Brick Breaker.iml" filepath="$PROJECT_DIR$/Kingfisher Brick Breaker.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

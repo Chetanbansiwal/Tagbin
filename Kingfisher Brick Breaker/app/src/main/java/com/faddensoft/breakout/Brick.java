@@ -21,7 +21,7 @@ package com.faddensoft.breakout;
  * Represents an immobile, destructible brick.
  */
 public class Brick extends BasicAlignedRect {
-    /*
+    /*  TEst    hsfj
      * It's worth noting that the position, size, color, and score value of a brick is fixed,
      * and could be computed on the fly while drawing.  We don't need a Brick object per brick;
      * all we really need is a bit vector that tells us whether or not brick N is alive.  We
