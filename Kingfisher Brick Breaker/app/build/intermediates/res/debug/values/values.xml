@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/C:/Users/Administrator/AndroidStudioProjects/android-breakout/app/src/main/res/values/strings.xml -->
+    <!-- From: file:/G:/tagPlug%20Git/Tagbin/Kingfisher%20Brick%20Breaker/app/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string-array name="difficulty_level_names">
         <item>Easy</item>

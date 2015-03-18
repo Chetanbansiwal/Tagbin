@@ -1,6 +1,8 @@
 -- Merging decision tree log ---
 manifest
 ADDED from AndroidManifest.xml:18:1
+	xmlns:android
+		ADDED from AndroidManifest.xml:18:11
 	package
 		ADDED from AndroidManifest.xml:19:5
 		INJECTED from AndroidManifest.xml:0:0
@@ -11,8 +13,6 @@ ADDED from AndroidManifest.xml:18:1
 		ADDED from AndroidManifest.xml:20:5
 		INJECTED from AndroidManifest.xml:0:0
 		INJECTED from AndroidManifest.xml:0:0
-	xmlns:android
-		ADDED from AndroidManifest.xml:18:11
 uses-sdk
 ADDED from AndroidManifest.xml:24:5
 	android:targetSdkVersion
@@ -25,10 +25,10 @@ ADDED from AndroidManifest.xml:24:5
 		INJECTED from AndroidManifest.xml:0:0
 uses-feature#0x00020000
 ADDED from AndroidManifest.xml:27:5
-	android:glEsVersion
-		ADDED from AndroidManifest.xml:27:19
 	android:required
 		ADDED from AndroidManifest.xml:27:52
+	android:glEsVersion
+		ADDED from AndroidManifest.xml:27:19
 supports-screens
 ADDED from AndroidManifest.xml:30:5
 	android:largeScreens

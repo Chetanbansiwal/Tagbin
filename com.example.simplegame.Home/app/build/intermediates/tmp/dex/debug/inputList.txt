@@ -1,0 +1,2 @@
+G:\tagPlug Git\Tagbin\com.example.simplegame.Home\app\build\intermediates\classes\debug
+G:\tagPlug Git\Tagbin\com.example.simplegame.Home\app\build\intermediates\pre-dexed\debug\support-v4-18.0.0-c26195b71c0dd48c642a8fca6c69962d58a6af23.jar
