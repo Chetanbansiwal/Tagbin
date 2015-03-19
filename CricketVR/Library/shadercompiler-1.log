@@ -1,0 +1,47 @@
+Base path: C:/Program Files (x86)/Unity_4/Editor/Data
+Pipe name: \\.\pipe\UnityShaderCompiler-1-4500
+Cmd: getPlatforms
+Cmd: preprocess
+  insize=2144 outsize=1906 ok=1
+Cmd: compileSnippet
+  api=4 type=0 insize=6277 outsize=5678 kw=DIRECTIONAL LIGHTMAP_OFF DIRLIGHTMAP_OFF ok=1
+Cmd: compileSnippet
+  api=4 type=1 insize=6277 outsize=3549 kw=DIRECTIONAL LIGHTMAP_OFF DIRLIGHTMAP_OFF ok=1
+Cmd: compileSnippet
+  api=4 type=0 insize=3904 outsize=5328 kw=POINT ok=1
+Cmd: compileSnippet
+  api=4 type=1 insize=3904 outsize=3777 kw=POINT ok=1
+Cmd: compileSnippet
+  api=4 type=0 insize=5647 outsize=5434 kw=DIRECTIONAL LIGHTMAP_OFF DIRLIGHTMAP_OFF ok=1
+Cmd: compileSnippet
+  api=4 type=1 insize=5647 outsize=2696 kw=DIRECTIONAL LIGHTMAP_OFF DIRLIGHTMAP_OFF ok=1
+Cmd: compileSnippet
+  api=4 type=0 insize=3396 outsize=5085 kw=POINT ok=1
+Cmd: compileSnippet
+  api=4 type=1 insize=3396 outsize=2923 kw=POINT ok=1
+Cmd: preprocess
+  insize=648 outsize=1297 ok=1
+Cmd: compileSnippet
+  api=4 type=0 insize=4971 outsize=3094 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_OFF ok=1
+Cmd: compileSnippet
+  api=4 type=1 insize=4971 outsize=1437 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_OFF ok=1
+Cmd: compileSnippet
+  api=4 type=0 insize=2508 outsize=3053 kw=POINT ok=1
+Cmd: compileSnippet
+  api=4 type=1 insize=2508 outsize=1713 kw=POINT ok=1
+Cmd: compileSnippet
+  api=4 type=0 insize=1885 outsize=1477 kw= ok=1
+Cmd: compileSnippet
+  api=4 type=1 insize=1885 outsize=632 kw= ok=1
+Cmd: compileSnippet
+  api=4 type=0 insize=4376 outsize=2883 kw=LIGHTMAP_OFF DIRLIGHTMAP_OFF HDR_LIGHT_PREPASS_OFF ok=1
+Cmd: compileSnippet
+  api=4 type=1 insize=4376 outsize=1331 kw=LIGHTMAP_OFF DIRLIGHTMAP_OFF HDR_LIGHT_PREPASS_OFF ok=1
+Cmd: compileSnippet
+  api=4 type=0 insize=3904 outsize=4548 kw=DIRECTIONAL ok=1
+Cmd: compileSnippet
+  api=4 type=1 insize=3904 outsize=3305 kw=DIRECTIONAL ok=1
+Cmd: compileSnippet
+  api=4 type=0 insize=2508 outsize=2338 kw=DIRECTIONAL ok=1
+Cmd: compileSnippet
+  api=4 type=1 insize=2508 outsize=1242 kw=DIRECTIONAL ok=1
