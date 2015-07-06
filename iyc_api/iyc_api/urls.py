@@ -1,4 +1,5 @@
 from reload_pos import views
+from django.contrib import admin
 from django.conf.urls import patterns, url, include
 from rest_framework.routers import DefaultRouter
 
